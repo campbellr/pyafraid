@@ -15,7 +15,7 @@ except ImportError: # python < 2.5
 API_URL = "http://freedns.afraid.org/api/?action=getdyndns&sha="
 
 def error(msg, code=1):
-    print "%s: error: %s" % (sys.argv[0], msg) >> sys.stderr
+    print >> sys.stderr, "%s: error: %s" % (sys.argv[0], msg)
     sys.exit(code)
 
 def parse_args():
