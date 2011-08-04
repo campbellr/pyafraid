@@ -75,8 +75,7 @@ def main():
     sha_hash = get_sha(opts.username, opts.password)
     records = get_records(sha_hash)
     record = get_record_by_desc(records, opts.hostname)
-    print "record: %s" % pprint.pformat(record)
-    #update_url(record)
+    update_url(record)
 
 if __name__ == "__main__":
     main()
