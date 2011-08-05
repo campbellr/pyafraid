@@ -9,12 +9,14 @@ Usage
 
 From the command-line simply run:
 
-$ ./afraid.py -u <username> -p <password> -n <hostname>
+::
+  $ ./afraid.py -u <username> -p <password> -n <hostname>
 
 For a more detailed usage description, use the --help/-h option:
 
-$ python afraid.py -h
-Usage: afraid.py [options]
+
+$ ./afraid.py -h
+Usage: afraid.py update|query [-h] [-u <username>] [-p <password>] [-n <hostname>]
 
 Options:
   -h, --help            show this help message and exit
@@ -23,7 +25,35 @@ Options:
   -p PASSWORD, --password=PASSWORD
                         The associated password
   -n HOSTNAME, --hostname=HOSTNAME
-                        The name of the host to update
+                        The name of the host to update or query
+
+
+For example, to update freedns.afraid.org to point to the current IP address, use the 'update' argument:
+
+::
+
+ $ python afraid.py update -u myuser -p mypass -n mythbox.example.org
+ Attempting to update mythbox.example.org...
+ response from server:
+ ERROR: Address 1.1.1.1 has not changed. 
+
+
+To query freedns.afraid.org for information about an account, you can use the 'query' argument:
+
+::
+
+ $ python afraid.py query -u myuser -p mypass
+
+ url:    http://freedns.afraid.org/dynamic/update.php?<some_hash>
+ ip:     1.1.1.1
+ desc:   example.org
+ 
+ url:    http://freedns.afraid.org/dynamic/update.php?<some_other_hash>
+ ip:     2.2.2.2
+ desc:   deathstar.example.org
+
+
+Note that specifying -n/--hostname will restrict the output to the given host
 
 
 Usage Requirements
@@ -43,7 +73,8 @@ In order to execute unit tests (using 'make test') the following modules are req
 
 All of these modules can be installed with 'easy_install':
 
-$ [sudo] easy_install mock unittest2 discover
+::
+ $ [sudo] easy_install mock unittest2 discover
 
 
 Reporting Bugs
