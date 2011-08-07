@@ -7,8 +7,6 @@ import optparse
 import sys
 import pprint
 
-import texttable
-
 try:
     from hashlib import sha1
 except ImportError: # python < 2.5
