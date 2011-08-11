@@ -26,7 +26,9 @@ Options:
                         The associated password
   -n HOSTNAME, --hostname=HOSTNAME
                         The name of the host to update or query
-
+  -s SHA_HASH, --sha-hash=SHA_HASH
+                        The SHA-1 hash from the API interface
+                        URL. Don't use this with the -u and -p options.
 
 For example, to update freedns.afraid.org to point to the current IP address, use the 'update' argument:
 
