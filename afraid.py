@@ -20,14 +20,22 @@ def error(msg, code=1):
 
 def validate_args(parser, options, args):
     if len(args) != 1:
-        parser.error("Incorrect number of arguments.")
+        parser.error("Incorrect number of arguments. Maybe you omitted update/query?")
 
     action= args[0]
 
+    # we will only require username and password if the SHA-1 hash is not given
+
     if action.lower() == "update":
-        required_options = ['username', 'password', 'hostname']
+        if options.sha_hash:
+            required_options = ['hostname']
+        else:
+            required_options = ['username', 'password', 'hostname']
     elif action.lower() == "query":
-        required_options = ['username', 'password']
+        if options.sha_hash:
+            required_options = []
+        else:
+            required_options = ['username', 'password']
     else:
         parser.error("Either 'update' or 'query' must be provided.")
 
@@ -43,6 +51,8 @@ def parse_args():
                       dest='password', default=None)
     parser.add_option('-n', '--hostname', help="The name of the host to update or query",
                        dest='hostname', default=None)
+    parser.add_option('-s', '--sha-hash', help="The SHA-1 hash from the API interface URL. Don't use this with the -u and -p options.",
+                      dest="sha_hash", default=None)
 
     options, args = parser.parse_args()
     validate_args(parser, options, args)
@@ -86,7 +96,10 @@ def get_record_by_desc(records, desc):
     error("No record with description '%s'" % desc)
 
 def perform_update(opts):
-    sha_hash = get_sha(opts.username, opts.password)
+    if not opts.sha_hash:
+        sha_hash = get_sha(opts.username, opts.password)
+    else:
+        sha_hash = opts.sha_hash
     records = get_records(sha_hash)
     record = get_record_by_desc(records, opts.hostname)
     update_url(record)
@@ -107,7 +120,10 @@ def print_results(records):
 
 
 def perform_query(opts):
-    sha_hash = get_sha(opts.username, opts.password)
+    if not opts.sha_hash:
+        sha_hash = get_sha(opts.username, opts.password)
+    else:
+        sha_hash = opts.sha_hash
     result = get_records(sha_hash)
     if opts.hostname:
         result = get_record_by_desc(result, opts.hostname)
