@@ -24,9 +24,12 @@ username/password combo:
 
 For a more detailed usage description, use the --help/-h option:
 
+::
 
 $ ./afraid.py -h
-Usage: afraid.py update|query [-h] [-u <username>] [-p <password>] [-n <hostname>]
+Usage: afraid.py update|query [-h] [-u <username>] [-p <password>] [-n
+<hostname>]
+
 
 Options:
   -h, --help            show this help message and exit
