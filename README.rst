@@ -10,7 +10,17 @@ Usage
 From the command-line simply run:
 
 ::
-  $ ./afraid.py -u <username> -p <password> -n <hostname>
+
+  $ ./afraid.py update|query <username> -p <password> -n <hostname>
+
+
+Or, if you'd like to use the SHA-1 hash instead of the
+username/password combo:
+
+::
+
+  $ ./afraid.py update|query -s <sha_hash> -n <hostname>
+
 
 For a more detailed usage description, use the --help/-h option:
 
@@ -76,6 +86,7 @@ In order to execute unit tests (using 'make test') the following modules are req
 All of these modules can be installed with 'easy_install':
 
 ::
+
  $ [sudo] easy_install mock unittest2 discover
 
 
