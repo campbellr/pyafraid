@@ -44,7 +44,7 @@ def validate_args(parser, options, args):
             parser.error("The --%s option must be provided." % required_opt)
 
 def parse_args():
-    parser = optparse.OptionParser(usage="%prog update|query [-h] [-u <username>] [-p <password>] [-n <hostname>]")
+    parser = optparse.OptionParser(usage="%prog update|query [-h] [-u <username> -p <password>]|[-s <sha_hash>] [-n <hostname>]")
     parser.add_option('-u', '--username', help="The freedns.afraid.org username",
                       dest="username", default=None)
     parser.add_option('-p', '--password', help="The associated password",
