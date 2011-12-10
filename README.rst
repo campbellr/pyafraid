@@ -7,8 +7,12 @@ pyafraid is a command-line tool for updating IP addresses for the afraid.org DDN
 Installation
 ============
 
-pyafraid can be installed using the standard ``python setup.py install`` command::
+``pyafraid`` can be installed using the standard ``easy_install`` command::
  
+ $ [sudo] easy_install pyafraid
+
+Alternatively, you can install from a local version using ``setup.py install``::
+
  $ [sudo] python setup.py install
 
 Usage
