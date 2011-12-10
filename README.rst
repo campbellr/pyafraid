@@ -4,34 +4,35 @@
 
 pyafraid is a command-line tool for updating IP addresses for the afraid.org DDNS service.
 
+Installation
+============
+
+pyafraid can be installed using the standard `python setup.py install` command:::
+ 
+ $ [sudo] python setup.py install
+
 Usage
 =====
 
-From the command-line simply run:
+Once installed, simply run:::
 
-::
-
-  $ ./pyafraid.py update|query <username> -p <password> -n <hostname>
+  $ pyafraid update|query <username> -p <password> -n <hostname>
 
 
 Or, if you'd like to use the SHA-1 hash instead of the
-username/password combo:
+username/password combo:::
 
-::
-
-  $ ./pyafraid.py update|query -s <sha_hash> -n <hostname>
+  $ pyafraid update|query -s <sha_hash> -n <hostname>
 
 
-For a more detailed usage description, use the --help/-h option:
+For a more detailed usage description, use the --help/-h option:::
 
-::
-
-$ ./pyafraid.py -h
-Usage: pyafraid.py update|query [-h] [-u <username>] [-p <password>] [-n
-<hostname>]
+ $ pyafraid -h
+ Usage: pyafraid.py update|query [-h] [-u <username>] [-p <password>] [-n
+ <hostname>]
 
 
-Options:
+ Options:
   -h, --help            show this help message and exit
   -u USERNAME, --username=USERNAME
                         The freedns.afraid.org username
@@ -43,32 +44,29 @@ Options:
                         The SHA-1 hash from the API interface
                         URL. Don't use this with the -u and -p options.
 
-For example, to update freedns.afraid.org to point to the current IP address, use the 'update' argument:
+For example, to update freedns.afraid.org to point to the current IP address,
+use the 'update' argument:::
 
-::
-
- $ python pyafraid.py update -u myuser -p mypass -n mythbox.example.org
- Attempting to update mythbox.example.org...
- response from server:
- ERROR: Address 1.1.1.1 has not changed. 
+ $ pyafraid update -u myuser -p mypass -n mythbox.example.org
+   Attempting to update mythbox.example.org...
+   response from server:
+   ERROR: Address 1.1.1.1 has not changed. 
 
 
-To query freedns.afraid.org for information about an account, you can use the 'query' argument:
+To query freedns.afraid.org for information about an account, you can use the 'query' argument:::
 
-::
+ $ pyafraid query -u myuser -p mypass
 
- $ python pyafraid.py query -u myuser -p mypass
-
- url:    http://freedns.afraid.org/dynamic/update.php?<some_hash>
- ip:     1.1.1.1
- desc:   example.org
+  url:    http://freedns.afraid.org/dynamic/update.php?<some_hash>
+  ip:     1.1.1.1
+  desc:   example.org
  
- url:    http://freedns.afraid.org/dynamic/update.php?<some_other_hash>
- ip:     2.2.2.2
- desc:   deathstar.example.org
+  url:    http://freedns.afraid.org/dynamic/update.php?<some_other_hash>
+  ip:     2.2.2.2
+  desc:   deathstar.example.org
 
 
-Note that specifying -n/--hostname will restrict the output to the given host
+Note that specifying -n/--hostname will restrict the output to the given host.
 
 
 Usage Requirements
@@ -86,9 +84,7 @@ In order to execute unit tests (using 'make test') the following modules are req
     * discover
     * mock
 
-All of these modules can be installed with 'easy_install':
-
-::
+All of these modules can be installed with 'easy_install':::
 
  $ [sudo] easy_install mock unittest2 discover
 
