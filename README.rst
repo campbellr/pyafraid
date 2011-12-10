@@ -7,25 +7,25 @@ pyafraid is a command-line tool for updating IP addresses for the afraid.org DDN
 Installation
 ============
 
-pyafraid can be installed using the standard `python setup.py install` command:::
+pyafraid can be installed using the standard ``python setup.py install`` command::
  
  $ [sudo] python setup.py install
 
 Usage
 =====
 
-Once installed, simply run:::
+Once installed, simply run::
 
   $ pyafraid update|query <username> -p <password> -n <hostname>
 
 
 Or, if you'd like to use the SHA-1 hash instead of the
-username/password combo:::
+username/password combo::
 
   $ pyafraid update|query -s <sha_hash> -n <hostname>
 
 
-For a more detailed usage description, use the --help/-h option:::
+For a more detailed usage description, use the ``--help/-h`` option::
 
  $ pyafraid -h
  Usage: pyafraid.py update|query [-h] [-u <username>] [-p <password>] [-n
@@ -45,7 +45,7 @@ For a more detailed usage description, use the --help/-h option:::
                         URL. Don't use this with the -u and -p options.
 
 For example, to update freedns.afraid.org to point to the current IP address,
-use the 'update' argument:::
+use the ``update`` argument::
 
  $ pyafraid update -u myuser -p mypass -n mythbox.example.org
    Attempting to update mythbox.example.org...
@@ -53,7 +53,7 @@ use the 'update' argument:::
    ERROR: Address 1.1.1.1 has not changed. 
 
 
-To query freedns.afraid.org for information about an account, you can use the 'query' argument:::
+To query freedns.afraid.org for information about an account, you can use the ``query`` argument::
 
  $ pyafraid query -u myuser -p mypass
 
@@ -66,7 +66,7 @@ To query freedns.afraid.org for information about an account, you can use the 'q
   desc:   deathstar.example.org
 
 
-Note that specifying -n/--hostname will restrict the output to the given host.
+Note that specifying ``-n/--hostname`` will restrict the output to the given host.
 
 
 Usage Requirements
@@ -84,7 +84,7 @@ In order to execute unit tests (using 'make test') the following modules are req
     * discover
     * mock
 
-All of these modules can be installed with 'easy_install':::
+All of these modules can be installed with ``easy_install``::
 
  $ [sudo] easy_install mock unittest2 discover
 
