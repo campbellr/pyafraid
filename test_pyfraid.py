@@ -2,7 +2,7 @@
 """
 import unittest2
 
-from mock import patch, Mock
+from mock import patch
 
 import pyafraid
 

@@ -5,7 +5,6 @@
 import urllib2
 import optparse
 import sys
-import pprint
 
 try:
     from hashlib import sha1

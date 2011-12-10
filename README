@@ -83,14 +83,13 @@ Patches are welcomed :)
 Development Requirements
 =========================
 
-In order to execute unit tests (using 'make test') the following modules are required:
+In order to execute unit tests (using ``python setup.py test``) the following modules are required:
     * unittest2
-    * discover
     * mock
 
 All of these modules can be installed with ``easy_install``::
 
- $ [sudo] easy_install mock unittest2 discover
+ $ [sudo] easy_install mock unittest2
 
 
 Reporting Bugs

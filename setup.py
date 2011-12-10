@@ -11,5 +11,5 @@ setup(
         author="Ryan Campbell",
         author_email="campbellr@gmail.com",
         url="http://github.com/campbellr/pyafraid",
-
+        test_suite='unittest2.collector',
         )
