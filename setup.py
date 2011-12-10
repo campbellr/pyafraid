@@ -5,7 +5,7 @@ setup(
         name='pyafraid',
         version=pyafraid.__version__,
         description="Command-line tool for manipulating afraid.org DDNS",
-        long_description=open('README.txt').read(),
+        long_description=open('README').read(),
         py_modules=['pyafraid'],
         entry_points={'console_scripts': ['pyafraid = pyafraid:main']},
         author="Ryan Campbell",
