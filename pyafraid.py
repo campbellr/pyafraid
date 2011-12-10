@@ -12,6 +12,8 @@ try:
 except ImportError: # python < 2.5
     from sha import new as sha1
 
+__version__ = '0.1'
+
 API_URL = "http://freedns.afraid.org/api/?action=getdyndns&sha="
 
 def error(msg, code=1):

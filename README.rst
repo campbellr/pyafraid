@@ -11,7 +11,7 @@ From the command-line simply run:
 
 ::
 
-  $ ./afraid.py update|query <username> -p <password> -n <hostname>
+  $ ./pyafraid.py update|query <username> -p <password> -n <hostname>
 
 
 Or, if you'd like to use the SHA-1 hash instead of the
@@ -19,15 +19,15 @@ username/password combo:
 
 ::
 
-  $ ./afraid.py update|query -s <sha_hash> -n <hostname>
+  $ ./pyafraid.py update|query -s <sha_hash> -n <hostname>
 
 
 For a more detailed usage description, use the --help/-h option:
 
 ::
 
-$ ./afraid.py -h
-Usage: afraid.py update|query [-h] [-u <username>] [-p <password>] [-n
+$ ./pyafraid.py -h
+Usage: pyafraid.py update|query [-h] [-u <username>] [-p <password>] [-n
 <hostname>]
 
 
@@ -47,7 +47,7 @@ For example, to update freedns.afraid.org to point to the current IP address, us
 
 ::
 
- $ python afraid.py update -u myuser -p mypass -n mythbox.example.org
+ $ python pyafraid.py update -u myuser -p mypass -n mythbox.example.org
  Attempting to update mythbox.example.org...
  response from server:
  ERROR: Address 1.1.1.1 has not changed. 
@@ -57,7 +57,7 @@ To query freedns.afraid.org for information about an account, you can use the 'q
 
 ::
 
- $ python afraid.py query -u myuser -p mypass
+ $ python pyafraid.py query -u myuser -p mypass
 
  url:    http://freedns.afraid.org/dynamic/update.php?<some_hash>
  ip:     1.1.1.1

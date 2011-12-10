@@ -4,7 +4,7 @@ import unittest2
 
 from mock import patch, Mock
 
-import afraid
+import pyafraid
 
 class TestAfraid(unittest2.TestCase):
     @patch('sys.exit')
@@ -12,7 +12,7 @@ class TestAfraid(unittest2.TestCase):
         """ Test that the error method works properly
         """
         errcode = 2
-        afraid.error('this is an error message', code=errcode)
+        pyafraid.error('this is an error message', code=errcode)
         mockexit.assert_called_with(2)
 
     def test_get_sha(self):
@@ -21,21 +21,21 @@ class TestAfraid(unittest2.TestCase):
         username = 'foo'
         password = 'bar'
         expected = '4fa0d6984df3b91af1f0942b7522987783050b90'
-        self.assertEqual(afraid.get_sha(username, password), expected)
+        self.assertEqual(pyafraid.get_sha(username, password), expected)
 
     def test_parse_ascii_api(self):
-        records = afraid.parse_ascii_api(API_OUTPUT)
+        records = pyafraid.parse_ascii_api(API_OUTPUT)
         self.assertEqual(records, SAMPLE_RECORDS)
 
     def test_get_records_by_desc(self):
         desc = 'example.org'
-        record = afraid.get_record_by_desc(SAMPLE_RECORDS, desc)
+        record = pyafraid.get_record_by_desc(SAMPLE_RECORDS, desc)
         self.assertEqual(record, SAMPLE_RECORDS[0])
 
     @patch('urllib2.urlopen')
     def test_update_url(self, mockurlopen):
         mockurlopen.return_value.read.return_value = ""
-        afraid.update_url(SAMPLE_RECORDS[0])
+        pyafraid.update_url(SAMPLE_RECORDS[0])
 
 
 API_OUTPUT = \
